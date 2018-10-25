@@ -2,7 +2,10 @@
   "name": "mongo-scrapper",
   "version": "1.0.0",
   "description": "A web app that lets users view the lastest news.",
-  "main": "index.js",
+  "main": "server.js",
+  "engines": {
+    "node": "10.8.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
