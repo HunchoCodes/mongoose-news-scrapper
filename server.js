@@ -4,6 +4,7 @@ var bParser = require('body-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 var eHandle = require('express-handlebars');
+var path = require('path');
 
 var PORT = process.env.PORT || 3000;
 var MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/news_scraper';
@@ -18,7 +19,7 @@ app.use(bParser.urlencoded({
   extended: true
 }));
 // set static directory
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'assets')));
 // Set Handlebars as the default templating engine
 app.engine('handlebars', eHandle({
   defaultLayout: 'main'
