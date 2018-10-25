@@ -1,16 +1,16 @@
 // dependencies
-var express = require('express');
-var bParser = require('body-parser');
-var logger = require('morgan');
-var mongoose = require('mongoose');
-var eHandle = require('express-handlebars');
-var path = require('path');
+const express = require('express');
+const bParser = require('body-parser');
+const logger = require('morgan');
+const mongoose = require('mongoose');
+const eHandle = require('express-handlebars');
+const path = require("path");
 
-var PORT = process.env.PORT || 3000;
-var MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/news_scraper';
+let PORT = process.env.PORT || 3000;
+let MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/news_scraper';
 
 // initialize express
-var app = express();
+const app = express();
 
 // use morgan logger for logging requests
 app.use(logger('dev'));
@@ -19,7 +19,7 @@ app.use(bParser.urlencoded({
   extended: true
 }));
 // set static directory
-app.use(express.static(path.join(__dirname, 'assets')));
+app.use(express.static(path.join(__dirname, 'public')));
 // Set Handlebars as the default templating engine
 app.engine('handlebars', eHandle({
   defaultLayout: 'main'
@@ -33,7 +33,7 @@ mongoose.connect(MONGODB_URI, {
 });
 
 // check connection status
-var db = mongoose.connection;
+let db = mongoose.connection;
 db.on('error', (error) => {
   console.log(`Connection error ${error}`);
 });
