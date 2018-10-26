@@ -6,8 +6,8 @@ var mongoose = require('mongoose');
 var eHandle = require('express-handlebars');
 var path = require("path");
 
-let PORT = process.env.PORT || 3000;
-let MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/news_scraper';
+var PORT = process.env.PORT || 3000;
+var MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/news_scraper';
 
 // initialize express
 var app = express();
@@ -27,13 +27,18 @@ app.engine('handlebars', eHandle({
 app.set('view engine', 'handlebars');
 
 // database configuration
-mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true
-});
+//mongoose.Promise = Promise;
+//mongoose.connect(MONGODB_URI, {
+//useNewUrlParser: true
+//});
+
+
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+
+mongoose.connect(MONGODB_URI);
 
 // check connection status
-let db = mongoose.connection;
+var db = mongoose.connection;
 db.on('error', (error) => {
   console.log(`Connection error ${error}`);
 });
