@@ -1,13 +1,13 @@
 $(() => {
   // declare functions
-  const scrapeArticles = () => {
+  var scrapeArticles = () => {
     $.get('/scrape')
       .then((data) => {
         $('body').html(data);
       });
   };
 
-  const saveArticle = function () {
+  var saveArticle = function () {
     let id = $(this).data('id');
 
     $.ajax({
@@ -19,7 +19,7 @@ $(() => {
       });
   };
 
-  const removeArticle = function () {
+  var removeArticle = function () {
     let id = $(this).data('id');
 
     $.ajax({
@@ -31,7 +31,7 @@ $(() => {
       });
   };
 
-  const viewNotes = function () {
+  var viewNotes = function () {
     let articleId = $(this).data('id');
 
     // send request to get article's notes if exist
@@ -82,7 +82,7 @@ $(() => {
       });
   };
 
-  const saveNote = function () {
+  var saveNote = function () {
     let id = $(this).data('id');
     let content = $('.note-content').val().trim();
 
@@ -106,7 +106,7 @@ $(() => {
     }
   };
 
-  const deleteNote = function () {
+  var deleteNote = function () {
     let id = $(this).data('id');
 
     $.ajax({
@@ -125,7 +125,7 @@ $(() => {
   }
 
   // keep scrollbar bottom
-  const contentBox = $('.note-content');
+  var contentBox = $('.note-content');
   contentBox.scrollTop = contentBox.scrollHeight;
 
   // click events

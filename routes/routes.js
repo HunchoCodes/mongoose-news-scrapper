@@ -1,7 +1,7 @@
 // dependencies
-const axios = require('axios');
-const cheerio = require('cheerio');
-const db = require('../models');
+var axios = require('axios');
+var cheerio = require('cheerio');
+var db = require('../models');
 
 module.exports = (app) => {
   // main page
@@ -53,9 +53,9 @@ module.exports = (app) => {
 
         $('.lakeside__content').each(function (i, element) {
           let result = {};
-          const title = $(this).children('h3').children('a').children('span').text();
-          const link = $(this).children('h3').children('a').attr('href');
-          const summary = $(this).children('p').text();
+          var title = $(this).children('h3').children('a').children('span').text();
+          var link = $(this).children('h3').children('a').attr('href');
+          var summary = $(this).children('p').text();
 
           result.title = title;
           result.link = link;

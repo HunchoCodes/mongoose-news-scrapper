@@ -1,16 +1,16 @@
 // dependencies
-const express = require('express');
-const bParser = require('body-parser');
-const logger = require('morgan');
-const mongoose = require('mongoose');
-const eHandle = require('express-handlebars');
-const path = require("path");
+var express = require('express');
+var bParser = require('body-parser');
+var logger = require('morgan');
+var mongoose = require('mongoose');
+var eHandle = require('express-handlebars');
+var path = require("path");
 
 let PORT = process.env.PORT || 3000;
 let MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/news_scraper';
 
 // initialize express
-const app = express();
+var app = express();
 
 // use morgan logger for logging requests
 app.use(logger('dev'));
