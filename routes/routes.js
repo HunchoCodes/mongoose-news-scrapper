@@ -31,7 +31,7 @@ module.exports = (app) => {
         saved: true
       })
       .then((dbArticle) => {
-        let articleObj = {
+        var articleObj = {
           article: dbArticle
         };
 
@@ -49,10 +49,10 @@ module.exports = (app) => {
     axios.get('http://www.bbc.com/sport/football')
       .then((response) => {
         // use cheerio for shorthand selector $
-        let $ = cheerio.load(response.data);
+        var $ = cheerio.load(response.data);
 
         $('.lakeside__content').each(function (i, element) {
-          let result = {};
+          var result = {};
           var title = $(this).children('h3').children('a').children('span').text();
           var link = $(this).children('h3').children('a').attr('href');
           var summary = $(this).children('p').text();
@@ -85,7 +85,7 @@ module.exports = (app) => {
         timestamp: -1
       })
       .then((dbArticle) => {
-        let articleObj = {
+        var articleObj = {
           article: dbArticle
         };
 
@@ -99,7 +99,7 @@ module.exports = (app) => {
 
   // save article
   app.put('/article/:id', (req, res) => {
-    let id = req.params.id;
+    var id = req.params.id;
 
     db.Article.findByIdAndUpdate(id, {
         $set: {
@@ -116,7 +116,7 @@ module.exports = (app) => {
 
   // remove article from page 'saved'
   app.put('/article/remove/:id', (req, res) => {
-    let id = req.params.id;
+    var id = req.params.id;
 
     db.Article.findByIdAndUpdate(id, {
         $set: {
@@ -133,7 +133,7 @@ module.exports = (app) => {
 
   // get current notes
   app.get('/article/:id', (req, res) => {
-    let id = req.params.id;
+    var id = req.params.id;
 
     // cannot get notes associated with article, only the very first one
     db.Article.findById(id)
@@ -148,7 +148,7 @@ module.exports = (app) => {
 
   // save new note
   app.post('/note/:id', (req, res) => {
-    let id = req.params.id;
+    var id = req.params.id;
 
     db.Note.create(req.body)
       .then((dbNote) => {
@@ -173,7 +173,7 @@ module.exports = (app) => {
 
   // delete note
   app.delete('/note/:id', (req, res) => {
-    let id = req.params.id;
+    var id = req.params.id;
 
     db.Note.remove({
         _id: id

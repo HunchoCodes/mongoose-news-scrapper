@@ -8,7 +8,7 @@ $(() => {
   };
 
   var saveArticle = function () {
-    let id = $(this).data('id');
+    var id = $(this).data('id');
 
     $.ajax({
         url: `/article/${id}`,
@@ -20,7 +20,7 @@ $(() => {
   };
 
   var removeArticle = function () {
-    let id = $(this).data('id');
+    var id = $(this).data('id');
 
     $.ajax({
         url: `/article/remove/${id}`,
@@ -32,7 +32,7 @@ $(() => {
   };
 
   var viewNotes = function () {
-    let articleId = $(this).data('id');
+    var articleId = $(this).data('id');
 
     // send request to get article's notes if exist
     $.ajax({
@@ -57,16 +57,16 @@ $(() => {
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>`);
 
-        let totalNotes = data.note.length;
+        var totalNotes = data.note.length;
 
         // if there is no note
         if (totalNotes == 0) {
-          let message = `<small class="text-muted">This article doesn't have any note yet.</small>`;
+          var message = `<small class="text-muted">This article doesn't have any note yet.</small>`;
           $('.modal-body').prepend(message);
         }
         // if there is/are note(s)
         else {
-          let notes = data.note;
+          var notes = data.note;
           // loop through notes and append to modal
           notes.forEach(note => {
             $('.list-group').append(`
@@ -83,8 +83,8 @@ $(() => {
   };
 
   var saveNote = function () {
-    let id = $(this).data('id');
-    let content = $('.note-content').val().trim();
+    var id = $(this).data('id');
+    var content = $('.note-content').val().trim();
 
     if (content) {
       $.ajax({
@@ -107,7 +107,7 @@ $(() => {
   };
 
   var deleteNote = function () {
-    let id = $(this).data('id');
+    var id = $(this).data('id');
 
     $.ajax({
         url: `/note/${id}`,

@@ -1,7 +1,8 @@
+//require in mongoose and require in mongoose schema
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-// Create schema
+// Create schema for how article will appear
 var ArticleSchema = new Schema({
   title: {
     type: String,

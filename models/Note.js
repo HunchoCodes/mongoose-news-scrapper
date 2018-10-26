@@ -1,3 +1,4 @@
+//require in mongoose and require in mongoose schema
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
