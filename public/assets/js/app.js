@@ -53,7 +53,7 @@ $(() => {
                   <textarea name="note" class="note-content"></textarea>
               </div>
               <div class="modal-footer">
-                  <button type="button" data-id="${data._id}" class="btn btn-primary btn-save-note">Save Note</button>
+                  <button type="button" data-id="${data._id}" class="btn btn-primary btn-save-note">Comment</button>
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>`);
 
