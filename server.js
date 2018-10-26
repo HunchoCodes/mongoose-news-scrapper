@@ -27,7 +27,10 @@ app.engine('handlebars', eHandle({
 app.set('view engine', 'handlebars');
 
 // database configuration
-mongoose.connect('mongodb://localhost:27017/mongo-scraper');
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true
+});
 
 // check connection status
 let db = mongoose.connection;
