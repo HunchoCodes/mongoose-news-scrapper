@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #AFB5B9;
+  background-color: #afb5b9;
 }
 
 .jumbotron {
@@ -8,7 +8,7 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  color: #FF0000;
+  color: white;
 }
 
 .note-content {
